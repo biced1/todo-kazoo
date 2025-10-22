@@ -16,6 +16,13 @@ namespace Data
             DbPath = Path.Join(path, "todo.db");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Todo>()
+                .Property(b => b.Id)
+                .UseIdentityColumn();
+        }
+
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
