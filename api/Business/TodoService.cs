@@ -12,9 +12,26 @@ namespace Business
             _todoRepository = todoRepository;
         }
 
-        public async Task CreateTodo(Todo todo)
+        public async Task<Todo> GetTodo(int todoId)
         {
-            await _todoRepository.CreateTodo(todo);
+            return await _todoRepository.GetTodo(todoId);
         }
+
+        public async Task<IEnumerable<Todo>> GetTodos()
+        {
+            return await _todoRepository.GetTodos();
+        }
+
+        public async Task<Todo> CreateTodo(TodoInsert todoInsert)
+        {
+            var todo = new Todo
+            {
+                Title = todoInsert.Title,
+                Description = todoInsert.Description
+            };
+
+            return await _todoRepository.CreateTodo(todo);
+        }
+
     }
 }

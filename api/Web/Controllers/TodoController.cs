@@ -1,10 +1,11 @@
 ﻿using Business;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace TodoKazooApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/todo")]
     [ApiController]
     public class TodoController : ControllerBase
     {
@@ -15,16 +16,23 @@ namespace TodoKazooApi.Controllers
             _todoService = todoService;
         }
 
-        [HttpGet]
-        public Todo GetTodo()
+        [HttpGet("{todoId}")]
+        public async Task<Todo> GetTodo(int todoId)
         {
-            return new Todo();
+            return await _todoService.GetTodo(todoId);
         }
 
-        [HttpPost]
-        public async Task CreateTodo(Todo todo)
+        [HttpGet]
+        public async Task<IEnumerable<Todo>> GetTodos()
         {
-            await _todoService.CreateTodo(todo);
+            return await _todoService.GetTodos();
+        }
+
+
+        [HttpPost]
+        public async Task<Todo> CreateTodo(TodoInsert todo)
+        {
+            return await _todoService.CreateTodo(todo);
         }
 
         [HttpPut]

@@ -4,6 +4,8 @@ namespace Data
 {
     public interface ITodoRepository
     {
-        Task CreateTodo(Todo todo);
+        Task<IEnumerable<Todo>> GetTodos();
+        Task<Todo> GetTodo(int todoId);
+        Task<Todo> CreateTodo(Todo todo);
     }
 }

@@ -4,6 +4,8 @@ namespace Business
 {
     public interface ITodoService
     {
-        Task CreateTodo(Todo todo);
+        Task<IEnumerable<Todo>> GetTodos();
+        Task<Todo> GetTodo(int todoId);
+        Task<Todo> CreateTodo(TodoInsert todoInsert);
     }
 }
