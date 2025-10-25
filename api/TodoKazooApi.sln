@@ -3,18 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", ".\Web\Web.csproj", "{74D8BF3D-D947-4C86-8846-B83B70E97C6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{74D8BF3D-D947-4C86-8846-B83B70E97C6A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0C6899B6-2D18-4CFA-B61A-82EF67DAA0F7} = {0C6899B6-2D18-4CFA-B61A-82EF67DAA0F7}
 		{5E8BE463-DD60-453E-B2CA-B6E4F6ABAA4B} = {5E8BE463-DD60-453E-B2CA-B6E4F6ABAA4B}
 		{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7} = {8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", ".\Domain\Domain.csproj", "{0C6899B6-2D18-4CFA-B61A-82EF67DAA0F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{0C6899B6-2D18-4CFA-B61A-82EF67DAA0F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", ".\Business\Business.csproj", "{5E8BE463-DD60-453E-B2CA-B6E4F6ABAA4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{5E8BE463-DD60-453E-B2CA-B6E4F6ABAA4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", ".\Data\Data.csproj", "{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Tests", "Web.Tests\Web.Tests.csproj", "{7A0B0F4A-DFD6-4F04-9056-EB1EE72EF147}"
+	ProjectSection(ProjectDependencies) = postProject
+		{74D8BF3D-D947-4C86-8846-B83B70E97C6A} = {74D8BF3D-D947-4C86-8846-B83B70E97C6A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Tests", "Business.Tests\Business.Tests.csproj", "{713887F4-AC26-4DB9-8D58-26926CFF0570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{7277EAE0-545D-482E-814E-00966D3AD927}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +47,18 @@ Global
 		{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E9DCAC4-35DC-45F0-A39F-63A06D824CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0B0F4A-DFD6-4F04-9056-EB1EE72EF147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0B0F4A-DFD6-4F04-9056-EB1EE72EF147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0B0F4A-DFD6-4F04-9056-EB1EE72EF147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0B0F4A-DFD6-4F04-9056-EB1EE72EF147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{713887F4-AC26-4DB9-8D58-26926CFF0570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713887F4-AC26-4DB9-8D58-26926CFF0570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713887F4-AC26-4DB9-8D58-26926CFF0570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713887F4-AC26-4DB9-8D58-26926CFF0570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7277EAE0-545D-482E-814E-00966D3AD927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7277EAE0-545D-482E-814E-00966D3AD927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7277EAE0-545D-482E-814E-00966D3AD927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7277EAE0-545D-482E-814E-00966D3AD927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

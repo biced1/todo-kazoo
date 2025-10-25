@@ -1,56 +1,49 @@
 ﻿using Business;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
-namespace TodoKazooApi.Controllers
+namespace Web.Controllers;
+
+[Route("api/todo")]
+[ApiController]
+public class TodoController(ITodoService todoService) : ControllerBase
 {
-    [Route("api/todo")]
-    [ApiController]
-    public class TodoController : ControllerBase
+    private readonly ITodoService _todoService = todoService;
+
+    [HttpGet("{todoId}")]
+    public async Task<Todo> GetTodo(int todoId)
     {
-        private readonly ITodoService _todoService;
+        return await _todoService.GetTodo(todoId);
+    }
 
-        public TodoController(ITodoService todoService)
-        {
-            _todoService = todoService;
-        }
-
-        [HttpGet("{todoId}")]
-        public async Task<Todo> GetTodo(int todoId)
-        {
-            return await _todoService.GetTodo(todoId);
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<Todo>> GetTodos()
-        {
-            return await _todoService.GetTodos();
-        }
+    [HttpGet]
+    public async Task<IEnumerable<Todo>> GetTodos()
+    {
+        return await _todoService.GetTodos();
+    }
 
 
-        [HttpPost]
-        public async Task<Todo> CreateTodo(TodoInsert todo)
-        {
-            return await _todoService.CreateTodo(todo);
-        }
+    [HttpPost]
+    public async Task<Todo> CreateTodo(TodoInsert todo)
+    {
+        return await _todoService.CreateTodo(todo);
+    }
 
-        [HttpPut]
-        public void UpdateTodo(Todo todo)
-        {
+    [HttpPut]
+    public void UpdateTodo(Todo todo)
+    {
 
-        }
+    }
 
-        [HttpPut("{todoId}")]
-        public void CompleteTodo(int todoId)
-        {
+    [HttpPut("{todoId}")]
+    public void CompleteTodo(int todoId)
+    {
 
-        }
+    }
 
-        [HttpDelete("{todoId}")]
-        public void DeleteTodo(int todoId) 
-        { 
-        
-        }
+    [HttpDelete("{todoId}")]
+    public void DeleteTodo(int todoId) 
+    { 
+    
     }
 }

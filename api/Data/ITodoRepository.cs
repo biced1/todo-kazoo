@@ -1,11 +1,10 @@
 ﻿using Domain;
 
-namespace Data
+namespace Data;
+
+public interface ITodoRepository
 {
-    public interface ITodoRepository
-    {
-        Task<IEnumerable<Todo>> GetTodos();
-        Task<Todo> GetTodo(int todoId);
-        Task<Todo> CreateTodo(Todo todo);
-    }
+    Task<IEnumerable<Todo>> GetTodos();
+    Task<Todo> GetTodo(int todoId);
+    Task<Todo> CreateTodo(Todo todo);
 }

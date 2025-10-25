@@ -1,38 +1,37 @@
 ﻿using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data
+namespace Data;
+
+public class TodoRepository : ITodoRepository
 {
-    public class TodoRepository : ITodoRepository
+    public TodoRepository()
     {
-        public TodoRepository()
-        {
-            using var db = new TodoContext();
-            db.Database.EnsureCreated(); //TODO can we move this to app startup
-        }
+        using var db = new TodoContext();
+        db.Database.EnsureCreated(); //TODO can we move this to app startup
+    }
 
-        public async Task<Todo> GetTodo(int todoId)
-        {
-            using var db = new TodoContext();
+    public async Task<Todo> GetTodo(int todoId)
+    {
+        using var db = new TodoContext();
 
-            return await db.Todos.SingleAsync(t => t.Id == todoId);
-        }
+        return await db.Todos.SingleAsync(t => t.Id == todoId);
+    }
 
-        public async Task<IEnumerable<Todo>> GetTodos()
-        {
-            using var db = new TodoContext();
+    public async Task<IEnumerable<Todo>> GetTodos()
+    {
+        using var db = new TodoContext();
 
-            return await db.Todos.ToListAsync();
-        }
+        return await db.Todos.ToListAsync();
+    }
 
-        public async Task<Todo> CreateTodo(Todo todo)
-        {
-            using var db = new TodoContext();
+    public async Task<Todo> CreateTodo(Todo todo)
+    {
+        using var db = new TodoContext();
 
-            var entity = await db.Todos.AddAsync(todo);
-            await db.SaveChangesAsync();
+        var entity = await db.Todos.AddAsync(todo);
+        await db.SaveChangesAsync();
 
-            return entity.Entity;
-        }
+        return entity.Entity;
     }
 }

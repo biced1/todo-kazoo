@@ -1,8 +1,7 @@
-﻿namespace Domain
+﻿namespace Domain;
+
+public class TodoInsert
 {
-    public class TodoInsert
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-    }
+    public string Title { get; set; }
+    public string Description { get; set; }
 }
